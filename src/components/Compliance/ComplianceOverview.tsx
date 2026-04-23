@@ -3,7 +3,7 @@ import type { ISOStandard } from '../../types'
 type Status = 'Compliant' | 'Partial' | 'Non-Compliant' | 'N/A'
 
 const STANDARD_COLORS: Record<ISOStandard, string> = {
-  'ISO 9001': 'var(--blue)',
+  'ISO 9001':  'var(--blue)',
   'ISO 14001': 'var(--emerald)',
   'ISO 45001': '#FB923C',
   'ISO 27001': 'var(--accent-violet)',
@@ -13,7 +13,7 @@ function calcScore(items: { status: Status }[]) {
   const applicable = items.filter(i => i.status !== 'N/A')
   if (!applicable.length) return 0
   const compliant = items.filter(i => i.status === 'Compliant').length
-  const partial = items.filter(i => i.status === 'Partial').length
+  const partial   = items.filter(i => i.status === 'Partial').length
   return Math.round(((compliant + partial * 0.5) / applicable.length) * 100)
 }
 
@@ -27,12 +27,12 @@ export default function ComplianceOverview({ data, activeStandard, onSelect }: P
   const standards = Object.keys(data) as ISOStandard[]
 
   return (
-    <div className="stat-grid" style={{ gridTemplateColumns: 'repeat(4, 1fr)', marginBottom: 28 }}>
+    <div className="stat-grid stat-grid-4" style={{ marginBottom: 28 }}>
       {standards.map(s => {
-        const score = calcScore(data[s] as { status: Status }[])
-        const color = STANDARD_COLORS[s]
+        const score    = calcScore(data[s] as { status: Status }[])
+        const color    = STANDARD_COLORS[s]
         const compliant = data[s].filter(i => i.status === 'Compliant').length
-        const nc = data[s].filter(i => i.status === 'Non-Compliant').length
+        const nc        = data[s].filter(i => i.status === 'Non-Compliant').length
 
         return (
           <div
@@ -51,7 +51,7 @@ export default function ComplianceOverview({ data, activeStandard, onSelect }: P
                 <div className="compliance-bar-fill" style={{ width: `${score}%`, background: color }} />
               </div>
             </div>
-            <div style={{ display: 'flex', gap: 12, fontSize: 11 }}>
+            <div style={{ display: 'flex', gap: 12, fontSize: 11, flexWrap: 'wrap' }}>
               <span style={{ color: 'var(--emerald)' }}>✓ {compliant} compliant</span>
               {nc > 0 && <span style={{ color: 'var(--red)' }}>✗ {nc} NC</span>}
             </div>

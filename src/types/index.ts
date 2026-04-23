@@ -9,13 +9,14 @@ export type Page =
   | 'compliance'
   | 'environmental'
 
-export type RiskLevel = 'Critical' | 'High' | 'Medium' | 'Low'
+export type RiskLevel     = 'Critical' | 'High' | 'Medium' | 'Low'
 export type IncidentSeverity = 'Critical' | 'Major' | 'Minor' | 'Near Miss'
-export type IncidentStatus = 'Open' | 'Investigating' | 'Resolved' | 'Closed'
-export type AuditStatus = 'Planned' | 'In Progress' | 'Completed' | 'Overdue'
-export type FindingType = 'Major NC' | 'Minor NC' | 'Observation' | 'Opportunity'
-export type DocStatus = 'Approved' | 'Pending Review' | 'Draft' | 'Obsolete'
-export type ISOStandard = 'ISO 9001' | 'ISO 14001' | 'ISO 45001' | 'ISO 27001'
+export type IncidentStatus   = 'Open' | 'Investigating' | 'Resolved' | 'Closed'
+export type AuditStatus      = 'Planned' | 'In Progress' | 'Completed' | 'Overdue'
+export type FindingType      = 'Major NC' | 'Minor NC' | 'Observation' | 'Opportunity'
+export type DocStatus        = 'Approved' | 'Pending Review' | 'Draft' | 'Obsolete'
+export type ISOStandard      = 'ISO 9001' | 'ISO 14001' | 'ISO 45001' | 'ISO 27001'
+export type FileType         = 'pdf' | 'docx'
 
 export interface Risk {
   id: string
@@ -74,6 +75,9 @@ export interface Document {
   lastModified: string
   approvedBy?: string
   category: string
+  file?: File
+  fileType?: FileType
+  fileName?: string
 }
 
 export interface ComplianceItem {
