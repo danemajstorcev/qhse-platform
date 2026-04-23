@@ -124,8 +124,6 @@ textarea {
   background: var(--text-muted);
 }
 
-/* ─── UTILITY ────────────────────────────────────────────────── */
-/* !important ensures .mobile-only beats later .icon-btn { display:flex } on desktop */
 .mobile-only {
   display: none !important;
 }
@@ -133,7 +131,6 @@ textarea {
   display: flex;
 }
 
-/* ─── APP LAYOUT ─────────────────────────────────────────────── */
 .app-shell {
   display: flex;
   height: 100vh;
@@ -149,7 +146,7 @@ textarea {
   margin-left: var(--sidebar-width);
   transition: margin-left var(--transition);
   min-width: 0;
-  width: 0; /* force flex child to not expand beyond parent */
+  width: 0;
 }
 
 .main-area.sidebar-collapsed {
@@ -162,7 +159,6 @@ textarea {
   padding: 28px 32px;
 }
 
-/* ─── SIDEBAR ─────────────────────────────────────────────────── */
 .sidebar {
   position: fixed;
   top: 0;
@@ -322,7 +318,6 @@ textarea {
   color: var(--text-primary);
 }
 
-/* ─── SIDEBAR OVERLAY (mobile) ───────────────────────────────── */
 .sidebar-overlay {
   display: none;
   position: fixed;
@@ -331,7 +326,6 @@ textarea {
   z-index: 99;
 }
 
-/* ─── HEADER ─────────────────────────────────────────────────── */
 .header {
   height: var(--header-height);
   background: var(--surface);
@@ -409,7 +403,6 @@ textarea {
   border-radius: 50%;
 }
 
-/* ─── CARDS ──────────────────────────────────────────────────── */
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -439,7 +432,6 @@ textarea {
   margin-top: 2px;
 }
 
-/* ─── STAT GRID ──────────────────────────────────────────────── */
 .stat-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -528,7 +520,6 @@ textarea {
   color: var(--amber);
 }
 
-/* ─── BADGES ─────────────────────────────────────────────────── */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -602,7 +593,6 @@ textarea {
   color: var(--red);
 }
 
-/* ─── BUTTONS ─────────────────────────────────────────────────── */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -662,7 +652,6 @@ textarea {
   transform: none;
 }
 
-/* ─── TABLES ─────────────────────────────────────────────────── */
 .table-wrap {
   overflow-x: auto;
   border-radius: var(--radius);
@@ -716,7 +705,6 @@ td .cell-mono {
   color: var(--text-muted);
 }
 
-/* ─── FORMS ──────────────────────────────────────────────────── */
 .form-group {
   display: flex;
   flex-direction: column;
@@ -764,7 +752,6 @@ select.form-input {
   width: auto;
 }
 
-/* ─── MODAL ──────────────────────────────────────────────────── */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -837,7 +824,6 @@ select.form-input {
   }
 }
 
-/* ─── PAGE HEADERS ───────────────────────────────────────────── */
 .page-header {
   display: flex;
   align-items: flex-start;
@@ -868,7 +854,6 @@ select.form-input {
   align-items: center;
 }
 
-/* ─── ISO CHIPS ──────────────────────────────────────────────── */
 .iso-chip {
   display: inline-flex;
   align-items: center;
@@ -897,7 +882,6 @@ select.form-input {
   color: var(--accent-violet);
 }
 
-/* ─── RISK MATRIX ────────────────────────────────────────────── */
 .matrix-cell {
   border-radius: 4px;
   display: flex;
@@ -931,7 +915,6 @@ select.form-input {
   background: #dc2626;
 }
 
-/* ─── COMPLIANCE ─────────────────────────────────────────────── */
 .compliance-bar-track {
   height: 7px;
   background: var(--surface-raised);
@@ -944,7 +927,6 @@ select.form-input {
   transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ─── TABS ────────────────────────────────────────────────────── */
 .tabs {
   display: flex;
   border-bottom: 1px solid var(--border);
@@ -978,7 +960,6 @@ select.form-input {
   border-bottom-color: var(--accent);
 }
 
-/* ─── FILTER BAR ─────────────────────────────────────────────── */
 .filter-bar {
   display: flex;
   align-items: center;
@@ -1006,7 +987,6 @@ select.form-input {
   padding-left: 34px;
 }
 
-/* ─── ACTIVITY FEED ──────────────────────────────────────────── */
 .activity-feed {
   display: flex;
   flex-direction: column;
@@ -1052,7 +1032,6 @@ select.form-input {
   font-family: "JetBrains Mono", monospace;
 }
 
-/* ─── ENV METRICS ────────────────────────────────────────────── */
 .metric-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -1106,7 +1085,6 @@ select.form-input {
   transition: width 0.6s ease;
 }
 
-/* ─── DOCUMENT VIEWER ────────────────────────────────────────── */
 .doc-icon {
   width: 36px;
   height: 36px;
@@ -1163,7 +1141,6 @@ select.form-input {
   border: 1px solid var(--border);
 }
 
-/* ─── FILE UPLOAD ZONE ───────────────────────────────────────── */
 .upload-zone {
   border: 2px dashed var(--border);
   border-radius: var(--radius);
@@ -1200,7 +1177,6 @@ select.form-input {
   border-style: solid;
 }
 
-/* ─── GRID LAYOUTS ───────────────────────────────────────────── */
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1218,7 +1194,6 @@ select.form-input {
   align-items: start;
 }
 
-/* ─── EMPTY STATE ────────────────────────────────────────────── */
 .empty-state {
   text-align: center;
   padding: 48px 24px;
@@ -1232,7 +1207,6 @@ select.form-input {
   font-size: 14px;
 }
 
-/* ─── RESPONSIVE: LARGE TABLET (≤ 1200px) ───────────────────── */
 @media (max-width: 1200px) {
   .grid-left-main {
     grid-template-columns: 1fr;
@@ -1243,7 +1217,6 @@ select.form-input {
   }
 }
 
-/* ─── RESPONSIVE: TABLET (≤ 960px) ──────────────────────────── */
 @media (max-width: 960px) {
   .grid-3 {
     grid-template-columns: 1fr 1fr;
@@ -1261,7 +1234,6 @@ select.form-input {
   }
 }
 
-/* ─── RESPONSIVE: MOBILE (≤ 768px) ──────────────────────────── */
 @media (max-width: 768px) {
   .mobile-only {
     display: flex !important;
@@ -1340,7 +1312,6 @@ select.form-input {
   }
 }
 
-/* ─── RESPONSIVE: SMALL MOBILE (≤ 480px) ────────────────────── */
 @media (max-width: 480px) {
   .stat-grid {
     grid-template-columns: 1fr 1fr;
@@ -1371,7 +1342,6 @@ select.form-input {
   }
 }
 
-/* ─── EXPANDABLE ROW DETAIL ───────────────────────────────────── */
 .row-detail-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1422,19 +1392,32 @@ select.form-input {
   flex-wrap: nowrap;
 }
 
-/* ─── NOTIFICATION PANEL ──────────────────────────────────────── */
 .notif-panel {
-  position: absolute;
+  position: fixed;
   top: calc(var(--header-height) + 4px);
   right: 16px;
+
   width: 340px;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow);
   z-index: 300;
-  animation: slideUp 0.15s ease;
+
   overflow: hidden;
+
+  animation: slideFromRight 0.15s ease;
+}
+
+@keyframes slideFromRight {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 .notif-header {
@@ -1539,13 +1522,11 @@ select.form-input {
   position: relative;
 }
 
-/* ─── RESPONSIVE OVERRIDES ────────────────────────────────────── */
 @media (max-width: 768px) {
   .row-detail-grid {
     grid-template-columns: 1fr;
   }
 
-  /* Hide date and ISO chip on mobile — only show status + findings + chevron */
   .audit-row-date {
     display: none;
   }
@@ -1557,23 +1538,27 @@ select.form-input {
     gap: 6px;
   }
 
-  /* Incident row: hide date on mobile */
   .incident-row-date {
     display: none;
   }
 
   .notif-panel {
-    width: calc(100vw - 32px);
-    right: 16px;
+    position: fixed;
+    top: calc(var(--header-height) + 4px);
+
+    right: 0;
+    left: 0;
+
+    width: 100%;
+
+    border-radius: 0;
   }
 }
 
 @media (max-width: 480px) {
-  /* On very small phones also hide findings count text, keep status + chevron only */
   .audit-findings-count {
     display: none;
   }
-  /* Incident: hide severity badge, keep only status */
   .incident-row-meta .badge-severity {
     display: none;
   }
@@ -1588,7 +1573,6 @@ select.form-input {
   }
 }
 
-/* ─── PAGE TRANSITION ────────────────────────────────────────── */
 .page-enter {
   animation: pageIn 0.18s ease both;
 }
