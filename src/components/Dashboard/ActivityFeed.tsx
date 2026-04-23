@@ -1,4 +1,4 @@
-import { recentActivity } from '../../data/mockData'
+import { recentActivity } from "../../data/mockData";
 
 export default function ActivityFeed() {
   return (
@@ -7,7 +7,7 @@ export default function ActivityFeed() {
         <div className="card-title">Recent Activity</div>
       </div>
       <div className="activity-feed">
-        {recentActivity.map(a => (
+        {recentActivity.map((a) => (
           <div key={a.id} className="activity-item">
             <div className={`activity-dot ${a.level}`} />
             <div className="activity-text">{a.text}</div>
@@ -16,5 +16,5 @@ export default function ActivityFeed() {
         ))}
       </div>
     </div>
-  )
+  );
 }

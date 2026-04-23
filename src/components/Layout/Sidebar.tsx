@@ -1,58 +1,86 @@
 import {
-  LayoutDashboard, AlertTriangle, Siren, ClipboardCheck,
-  FolderOpen, CheckSquare, Leaf, ChevronLeft, ChevronRight, Shield,
-} from 'lucide-react'
-import type { Page } from '../../types'
+  LayoutDashboard,
+  AlertTriangle,
+  Siren,
+  ClipboardCheck,
+  FolderOpen,
+  CheckSquare,
+  Leaf,
+  ChevronLeft,
+  ChevronRight,
+  Shield,
+} from "lucide-react";
+import type { Page } from "../../types";
 
 interface NavItem {
-  page: Page
-  label: string
-  icon: React.ElementType
-  getBadge?: (counts: BadgeCounts) => number
+  page: Page;
+  label: string;
+  icon: React.ElementType;
+  getBadge?: (counts: BadgeCounts) => number;
 }
 
 interface BadgeCounts {
-  openIncidentCount: number
-  criticalRiskCount: number
+  openIncidentCount: number;
+  criticalRiskCount: number;
 }
 
 const NAV_ITEMS: NavItem[] = [
-  { page: 'dashboard',    label: 'Dashboard',         icon: LayoutDashboard },
-  { page: 'risk',         label: 'Risk Assessment',   icon: AlertTriangle,   getBadge: c => c.criticalRiskCount },
-  { page: 'incidents',    label: 'Incidents',          icon: Siren,           getBadge: c => c.openIncidentCount },
-  { page: 'audits',       label: 'Audit Management',  icon: ClipboardCheck },
-  { page: 'documents',    label: 'Document Control',  icon: FolderOpen },
-  { page: 'compliance',   label: 'Compliance',         icon: CheckSquare },
-  { page: 'environmental',label: 'Environmental',      icon: Leaf },
-]
+  { page: "dashboard", label: "Dashboard", icon: LayoutDashboard },
+  {
+    page: "risk",
+    label: "Risk Assessment",
+    icon: AlertTriangle,
+    getBadge: (c) => c.criticalRiskCount,
+  },
+  {
+    page: "incidents",
+    label: "Incidents",
+    icon: Siren,
+    getBadge: (c) => c.openIncidentCount,
+  },
+  { page: "audits", label: "Audit Management", icon: ClipboardCheck },
+  { page: "documents", label: "Document Control", icon: FolderOpen },
+  { page: "compliance", label: "Compliance", icon: CheckSquare },
+  { page: "environmental", label: "Environmental", icon: Leaf },
+];
 
 interface Props {
-  currentPage: Page
-  onNavigate: (page: Page) => void
-  collapsed: boolean
-  onToggleCollapse: () => void
-  mobileOpen: boolean
-  onCloseMobile: () => void
-  openIncidentCount: number
-  criticalRiskCount: number
+  currentPage: Page;
+  onNavigate: (page: Page) => void;
+  collapsed: boolean;
+  onToggleCollapse: () => void;
+  mobileOpen: boolean;
+  onCloseMobile: () => void;
+  openIncidentCount: number;
+  criticalRiskCount: number;
 }
 
 export default function Sidebar({
-  currentPage, onNavigate, collapsed, onToggleCollapse,
-  mobileOpen, onCloseMobile, openIncidentCount, criticalRiskCount,
+  currentPage,
+  onNavigate,
+  collapsed,
+  onToggleCollapse,
+  mobileOpen,
+  onCloseMobile,
+  openIncidentCount,
+  criticalRiskCount,
 }: Props) {
-  const counts: BadgeCounts = { openIncidentCount, criticalRiskCount }
+  const counts: BadgeCounts = { openIncidentCount, criticalRiskCount };
 
   const handleNav = (page: Page) => {
-    onNavigate(page)
-    onCloseMobile()
-  }
+    onNavigate(page);
+    onCloseMobile();
+  };
 
   return (
     <>
-      {mobileOpen && <div className="sidebar-overlay" onClick={onCloseMobile} />}
+      {mobileOpen && (
+        <div className="sidebar-overlay" onClick={onCloseMobile} />
+      )}
 
-      <aside className={`sidebar ${collapsed ? 'collapsed' : ''} ${mobileOpen ? 'mobile-open' : ''}`}>
+      <aside
+        className={`sidebar ${collapsed ? "collapsed" : ""} ${mobileOpen ? "mobile-open" : ""}`}
+      >
         <div className="sidebar-logo">
           <div className="sidebar-logo-icon">
             <Shield size={16} color="#fff" strokeWidth={2.5} />
@@ -69,11 +97,11 @@ export default function Sidebar({
           {!collapsed && <div className="nav-section-label">Navigation</div>}
 
           {NAV_ITEMS.map(({ page, label, icon: Icon, getBadge }) => {
-            const badge = getBadge ? getBadge(counts) : 0
+            const badge = getBadge ? getBadge(counts) : 0;
             return (
               <button
                 key={page}
-                className={`nav-item ${currentPage === page ? 'active' : ''}`}
+                className={`nav-item ${currentPage === page ? "active" : ""}`}
                 onClick={() => handleNav(page)}
                 title={collapsed ? label : undefined}
               >
@@ -85,19 +113,23 @@ export default function Sidebar({
                   </>
                 )}
               </button>
-            )
+            );
           })}
         </nav>
 
         <div className="sidebar-footer">
           <button className="sidebar-toggle-btn" onClick={onToggleCollapse}>
-            {collapsed
-              ? <ChevronRight size={16} />
-              : <><ChevronLeft size={16} /><span>Collapse</span></>
-            }
+            {collapsed ? (
+              <ChevronRight size={16} />
+            ) : (
+              <>
+                <ChevronLeft size={16} />
+                <span>Collapse</span>
+              </>
+            )}
           </button>
         </div>
       </aside>
     </>
-  )
+  );
 }
